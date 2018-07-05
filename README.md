@@ -17,7 +17,7 @@ This cmdlet will replace all references in the solution ZIP file with the highes
 Update-AssemblyUsageToLatestVersion ..\samples\solutions\test.zip
 ```
 
-Assembly Filter
+#### Assembly Filter
 ```
 Update-AssemblyUsageToLatestVersion -ZipFileName ..\samples\solutions\test.zip -AssemblyName TNTGTools
 ```
