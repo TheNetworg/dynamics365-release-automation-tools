@@ -11,7 +11,7 @@ Import-Module .\dynamics365-release-automation-tools.psm1
 
 ### Update Custom Workflow Steps to the Latest Version
 
-This cmdlet will replace all references in the solution ZIP file with the highest build number of the assembly referenced in the solution.
+This cmdlet will replace all custom asseble references in the solution ZIP file with the highest build number of the assembly referenced in the solution.
 
 ```
 Update-AssemblyUsageToLatestVersion ..\samples\solutions\test.zip
@@ -22,7 +22,21 @@ Update-AssemblyUsageToLatestVersion ..\samples\solutions\test.zip
 Update-AssemblyUsageToLatestVersion -ZipFileName ..\samples\solutions\test.zip -AssemblyName TNTGTools
 ```
 
-## Known users
+### Remove Missing Dependencies From solution.xml
+
+There may be a situation when you have all the components in place and solution import should proceed without issues but the solution import wizard throws this error:
+
+*The import of the solution XYZ failed. The following components are missing in your system and are not included in the solution. Import the managed solutions that contain these components (Active) and then try importing this solution again.*
+
+The import wizard does not perform any check whether the component is actually present in the environment.
+
+You can remove it with this cmdlet:
+
+```
+Remove-MissingDependencies ..\samples\solutions\test.zip
+```
+
+## Known Users
 If you are using this library and would like to be listed here, please let us know!
 - [TheNetworg](https://blog.thenetw.org)
 
