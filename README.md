@@ -1,5 +1,5 @@
 # Dynamics 365 Release Automation Tools
-Tools for automation of Dynamics 365 solutions deployment
+Tools for automation of Dynamics 365 solution deployment
 
 ## Installation
 
