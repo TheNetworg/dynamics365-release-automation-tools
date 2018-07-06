@@ -1,6 +1,10 @@
 # Dynamics 365 Release Automation Tools
 Tools for automation of Dynamics 365 solution deployment
 
+![Usage](https://media.giphy.com/media/dtBYOo7T6APTEHXOno/giphy.gif)
+
+
+
 ## Installation
 To get started clone the repository and run:
 
