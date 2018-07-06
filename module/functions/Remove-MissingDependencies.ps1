@@ -20,7 +20,7 @@ function Remove-MissingDependencies{
     
     # Remove MissingDependency nodes
     if ($XmlDocument.ImportExportXml.SolutionManifest.MissingDependencies -is [Xml.XmlElement]) {
-        $XmlDocument.ImportExportXml.SolutionManifest.MissingDependencies.MissingDependency | %{ $_.ParentNode.RemoveChild($_) | Out-Null }
+        $XmlDocument.ImportExportXml.SolutionManifest.MissingDependencies.MissingDependency | ForEach-Object{ $_.ParentNode.RemoveChild($_) | Out-Null }
     }
     
     # Overwrite the file

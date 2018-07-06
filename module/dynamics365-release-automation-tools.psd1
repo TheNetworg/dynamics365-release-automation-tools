@@ -9,10 +9,10 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    # RootModule = ''
+    RootModule = 'dynamics365-release-automation-tools.psm1'
 
     # Version number of this module.
-    ModuleVersion     = '1.0'
+    ModuleVersion     = '1.3'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -30,7 +30,7 @@
     Copyright         = '2018 TheNetw.org s.r.o.'
 
     # Description of the functionality provided by this module
-    Description       = 'Tools for automation of Dynamics 365 solutions deployment'
+    Description       = 'Tools for automation of Dynamics 365 solution deployment'
 
     # Minimum version of the Windows PowerShell engine required by this module
     # PowerShellVersion = ''
@@ -73,7 +73,8 @@
     'Get-VersionFromAssemblyFullyQualifiedName',
     'Get-WorkflowDefinitionFileEntriesFromZip',
     'Update-AssemblyUsageToLatestVersion',
-    'Update-AssemblyVersionInFile'
+    'Update-AssemblyVersionInFile',
+    'Remove-MissingDependencies'
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport   = @()

@@ -2,16 +2,27 @@
 Tools for automation of Dynamics 365 solution deployment
 
 ## Installation
+To get started clone the repository and run:
 
 ```
-Import-Module .\dynamics365-release-automation-tools.psm1
+Import-Module .\module\dynamics365-release-automation-tools
+```
+
+**OR**
+
+Module is available in [PowerShell Gallery](https://www.powershellgallery.com/packages/dynamics365-release-automation-tools)
+
+Install the latest version:
+
+```
+Install-Module dynamics365-release-automation-tools
 ```
 
 ## Usage
 
 ### Update Custom Workflow Steps to the Latest Version
 
-This cmdlet will replace all custom asseble references in the solution ZIP file with the highest build number of the assembly referenced in the solution.
+This cmdlet will replace all custom assembly references in the solution ZIP file with the highest build number of the assembly referenced in the solution.
 
 ```
 Update-AssemblyUsageToLatestVersion ..\samples\solutions\test.zip

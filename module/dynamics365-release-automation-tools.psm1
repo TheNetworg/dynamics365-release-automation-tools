@@ -1,9 +1,11 @@
 
-##-------------------------------------------
+#-------------------------------------------
 ## Load Script Libraries
 ##-------------------------------------------
 $functions =  @(Get-ChildItem -Path $PSScriptRoot\functions\*.ps1 -ErrorAction SilentlyContinue)
 $model =  @(Get-ChildItem -Path $PSScriptRoot\model\*.ps1 -ErrorAction SilentlyContinue)
+
+
 
 #Dot source the files
 Foreach($import in @($model + $functions))
@@ -11,7 +13,7 @@ Foreach($import in @($model + $functions))
     Try
     {
         . $import.fullname
-        #Write-Host $import.fullname
+        Write-Host " IMPORTING SCRIPT: $($import.fullname)" -ForegroundColor Cyan
     }
     Catch
     {
