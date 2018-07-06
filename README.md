@@ -22,9 +22,9 @@ Install the latest version:
 Install-Module dynamics365-release-automation-tools
 ```
 
-## Usage
+## Functions
 
-### Update Custom Workflow Steps to the Latest Version
+### 1. Update Custom Workflow Steps to the Latest Version
 
 This cmdlet will replace all custom assembly references in the solution ZIP file with the highest build number of the assembly referenced in the solution.
 
@@ -37,7 +37,7 @@ Update-AssemblyUsageToLatestVersion ..\samples\solutions\test.zip
 Update-AssemblyUsageToLatestVersion -ZipFileName ..\samples\solutions\test.zip -AssemblyName TNTGTools
 ```
 
-### Remove Missing Dependencies From solution.xml
+### 2. Remove Missing Dependencies From solution.xml
 
 There may be a situation when you have all the components in place and solution import should proceed without issues but the solution import wizard throws this error:
 
