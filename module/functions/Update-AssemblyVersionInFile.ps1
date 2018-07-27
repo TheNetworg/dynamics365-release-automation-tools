@@ -9,21 +9,21 @@ function Update-AssemblyVersionInFile {
 
     $global:counter = 0
     foreach ($assembly in $LatestVersions) {
-        
+
         $regex = [regex]"(AssemblyQualifiedName="".+?, )($($assembly.name), Version=\d.+?, Culture=neutral, PublicKeyToken=.+?)("")"
 
-        $evaluator = [System.Text.RegularExpressions.MatchEvaluator] {  
+        $evaluator = [System.Text.RegularExpressions.MatchEvaluator] {
             param($match)
 
             if ($assembly.fullyQualifiedName -ne $match.Groups[2].Value) {
                 $global:counter++
-                $global:totalReplacements++        
+                $global:totalReplacements++
             }
 
             return "$($match.Groups[1].Value)$($assembly.fullyQualifiedName)$($match.Groups[3].Value)"
         }
-        
-        $FileContent = $regex.Replace($FileContent, $evaluator); 
+
+        $FileContent = $regex.Replace($FileContent, $evaluator);
 
     }
 

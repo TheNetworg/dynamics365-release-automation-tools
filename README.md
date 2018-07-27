@@ -8,7 +8,7 @@ Tools for automation of Dynamics 365 solution deployment
 ## Installation
 To get started clone the repository and run:
 
-```
+```powershell
 Import-Module .\module\dynamics365-release-automation-tools
 ```
 
@@ -18,7 +18,7 @@ Module is available in [PowerShell Gallery](https://www.powershellgallery.com/pa
 
 Install the latest version:
 
-```
+```powershell
 Install-Module dynamics365-release-automation-tools
 ```
 
@@ -28,12 +28,12 @@ Install-Module dynamics365-release-automation-tools
 
 This cmdlet will replace all custom assembly references in the solution ZIP file with the highest build number of the assembly referenced in the solution.
 
-```
+```powershell
 Update-AssemblyUsageToLatestVersion ..\samples\solutions\test.zip
 ```
 
 #### Assembly Filter
-```
+```powershell
 Update-AssemblyUsageToLatestVersion -ZipFileName ..\samples\solutions\test.zip -AssemblyName TNTGTools
 ```
 
@@ -47,8 +47,18 @@ The import wizard does not perform any check whether the component is actually p
 
 You can remove it with this cmdlet:
 
-```
+```powershell
 Remove-MissingDependencies ..\samples\solutions\test.zip
+```
+
+### 3. Replace dependency version with version from specific DLL
+```powershell
+Update-AssemblyUsageToAssemblyVersion -ZipFileName ..\samples\solutions\test.zip -AssemblyPath ..\samples\assemblies\assembly.dll
+```
+Alternatively you can use following command to specify the assembly version without the DLL:
+```powershell
+Update-AssemblyUsageToVersion -ZipFileName ..\samples\solutions\test.zip -AssemblyName Test -AssemblyVersion "1.0.0.0" -AssemblyFQN "TestAssembly.Test, version=1.0.0.0, 
+Culture=neutral, PublicKeyToken=123a4b567890c123"
 ```
 
 ## Known Users
