@@ -26,7 +26,7 @@ Install-Module dynamics365-release-automation-tools
 
 ### 1. Update Custom Workflow Steps to the Latest Version
 
-This cmdlet will replace all custom assembly references in the solution ZIP file with the highest build number of the assembly referenced in the solution.
+This cmdlet will replace all custom assembly references in the solution ZIP file with the highest build number of the assembly referenced in the solution. NOTE: You have to include the latest Assembly component in the solution! 
 
 ```powershell
 Update-AssemblyUsageToLatestVersion ..\samples\solutions\test.zip
