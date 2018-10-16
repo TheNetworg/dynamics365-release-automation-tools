@@ -10,11 +10,29 @@ function Update-AssemblyUsageToAssemblyVersion {
         [Parameter(Mandatory = $true)][string]$AssemblyPath
     )
 
+    $fileToEdit = "solution.xml"
     $ZipFileName = Resolve-Path $ZipFileName
 
     # Open zip and find the solution.xml file
     Add-Type -assembly  System.IO.Compression.FileSystem
     $zip = [System.IO.Compression.ZipFile]::Open($ZipFileName, "Update")
+    $solutionFile = $zip.Entries.Where( {$_.name -eq $fileToEdit})
+
+    # Read the XML
+    $streamReader = [System.IO.StreamReader]($solutionFile).Open()
+    $SolutionFileXml = [xml]$streamReader.ReadToEnd()
+    $streamReader.Close()
+
+    $assemblyTypeCode = 91
+
+    #Get all assemblies in the solution 
+    $assemblies = $SolutionFileXml.ImportExportXml.SolutionManifest.RootComponents.RootComponent | Where-Object {$_.type -match $assemblyTypeCode} `
+        | ForEach-Object {$_.schemaName.Substring(0, $_.schemaName.IndexOf(","))} `
+        | Sort-Object -Unique
+
+    $assemblyFQNs = $SolutionFileXml.ImportExportXml.SolutionManifest.RootComponents.RootComponent | Where-Object {$_.type -match $assemblyTypeCode} `
+        | ForEach-Object {$_.schemaName}
+    
 
     $assembly = [System.Reflection.AssemblyName]::GetAssemblyName($AssemblyPath)
 

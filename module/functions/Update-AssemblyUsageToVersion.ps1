@@ -4,7 +4,7 @@
 #. ..\model\LatestAssembly.ps1
 
 
-function Update-AssemblyUsageToAssemblyVersion {
+function Update-AssemblyUsageToVersion {
     param (
         [Parameter(Mandatory = $true)][string]$ZipFileName,
         [Parameter(Mandatory = $true)][string]$AssemblyName,

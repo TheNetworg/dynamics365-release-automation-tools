@@ -70,6 +70,7 @@ We accept contributions via [Pull Requests on Github](https://github.com/TheNetw
 
 ## Credits
 - [Tomas Prokop](https://github.com/TomProkop) ([TheNetw.org](https://thenetw.org))
+- [Jan Hajek](https://github.com/hajekj) ([TheNetw.org](https://thenetw.org))
 - [All Contributors](https://github.com/TheNetworg/dynamics365-release-automation-tools/contributors)
 
 ## Support
