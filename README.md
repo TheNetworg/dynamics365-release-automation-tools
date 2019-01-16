@@ -16,10 +16,22 @@ Import-Module .\module\dynamics365-release-automation-tools
 
 Module is available in [PowerShell Gallery](https://www.powershellgallery.com/packages/dynamics365-release-automation-tools)
 
-Install the latest version:
+Run PowerShell as administrator and allow remotely downloaded scripts:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned
+```
+
+Install the latest version from PowerShell Gallery:
 
 ```powershell
 Install-Module dynamics365-release-automation-tools
+```
+
+Import the installed module:
+
+```powershell
+Import-Module dynamics365-release-automation-tools
 ```
 
 ## Functions
